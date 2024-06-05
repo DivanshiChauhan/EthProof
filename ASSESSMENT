@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
+
+contract Together {
+    string public TokenName = "EcoToken";
+    string public TokenAbbrv = "ET";
+    uint public TotalSupply ;
+
+    mapping(address => uint) public balanceof;
+
+    function mint(address Address , uint Value) public{
+      TotalSupply += Value;
+      uint balance;
+      balance+=Value;
+      balanceof[Address]=balance;
+    }
+
+    function burn(address Address , uint Value) public {
+      if(balanceof[Address]>Value){
+      TotalSupply -= Value;
+      balanceof[Address] -= Value;
+     }
+     
+    }
+}
+
+   
+
